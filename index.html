@@ -141,7 +141,26 @@ body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 .right .row{order:2;margin-top:14px}
 .right #msg{order:3;margin-top:8px;min-height:18px}
 #forge{padding:12px 22px;font-size:19px}
+/* brand heats up when bold is on */
+.tb #bd svg.brand{filter:none;transition:filter .25s}
+.tb #bd svg circle{fill:#2e3136;stroke:#707680;transition:fill .25s,stroke .25s}
+.tb #bd svg text{fill:#8e949d;transition:fill .25s}
+.tb #bd svg rect:nth-child(2){fill:#3a3d43}
+.tb #bd.hot{background:linear-gradient(#7a2a14,#4a160a);box-shadow:0 0 14px #ff2a0099,inset 0 1px 0 #ffffff30}
+.tb #bd.hot svg.brand{filter:drop-shadow(0 0 4px #ff2a00) drop-shadow(0 0 10px #ff4a00);animation:redhot 1.2s ease-in-out infinite alternate}
+.tb #bd.hot svg circle{fill:#d42a0c;stroke:#ff6a2a}
+.tb #bd.hot svg text{fill:#fff1b8}
+.tb #bd.hot svg rect:nth-child(2){fill:#b3300f}
+@keyframes redhot{to{filter:drop-shadow(0 0 7px #ff2a00) drop-shadow(0 0 16px #ff6a00)}}
+/* more anvil-like text box */
+.heel{position:absolute;left:100%;top:4px;width:min(2.6vw,44px);height:auto;filter:drop-shadow(0 4px 6px #000a)}
+.tb{border-top:3px solid #c3c9d2;background:radial-gradient(circle at calc(100% - 78px) 50%,#050506 0 5px,#1b1d21 6px,#0000 8px),radial-gradient(circle at 18% 40%,#ffffff12 0 18px,#0000 19px),radial-gradient(circle at 52% 60%,#ffffff0e 0 22px,#0000 23px),radial-gradient(circle at 80% 35%,#ffffff10 0 16px,#0000 17px),linear-gradient(#a0a6af 0,#7b808a 10%,#565a62 60%,#3a3d43);box-shadow:inset 0 2px 0 #ffffff66,inset 0 -3px 0 #0009,0 -2px 0 #15171a}
+.tb::after{content:"";margin-left:auto;width:18px;height:18px;background:#040405;border:2px solid #1b1d21;box-shadow:inset 0 0 5px #000,0 1px 0 #ffffff40}
+.panel #ed{background:radial-gradient(circle at 22% 28%,#ffffff07 0 60px,#0000 61px),radial-gradient(circle at 68% 62%,#ffffff06 0 80px,#0000 81px),radial-gradient(ellipse at center,#202226,#0b0b0d);border:7px solid #3c4047;border-top:0;box-shadow:inset 0 0 0 2px #000a,inset 6px 6px 0 #ffffff10,inset 0 0 40px #000e,0 0 0 3px #15171a}
+.abase{height:152px}
+@media(max-width:1000px){.heel{display:none}}
 </style>
+
 
 </head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="7" result="t"/><feColorMatrix in="t" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .45 0" result="g"/><feComposite in="g" in2="SourceGraphic" operator="in" result="gi"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="gi"/></feMerge></filter></defs></svg>
@@ -155,6 +174,7 @@ body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 
 <div class="cols"><div class="left">
 <svg class="horn" viewBox="0 0 120 80" aria-hidden="true"><defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7b8089"/><stop offset=".45" stop-color="#3b3f46"/><stop offset="1" stop-color="#17191d"/></linearGradient></defs><g filter="url(#grain)"><path d="M120 0V72C92 68 52 58 12 42C2 38 0 31 8 27C50 12 92 4 120 0Z" fill="url(#hg)" stroke="#050506" stroke-width="2"/></g></svg>
+<svg class="heel" viewBox="0 0 50 80" aria-hidden="true"><defs><linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a8f98"/><stop offset=".5" stop-color="#3b3f46"/><stop offset="1" stop-color="#17191d"/></linearGradient></defs><g filter="url(#grain)"><path d="M0 8H38c8 0 12 4 12 10v28c0 5-4 8-9 8H0z" fill="url(#hl)" stroke="#050506" stroke-width="2"/></g></svg>
 <div class="tb" id="tb">
   <div class="szl" title="Font size (30 = default, 15 = tiny)"><span class="dd"><button id="szb" type="button"><svg viewBox="0 0 36 20" aria-hidden="true"><rect x="1" y="3" width="34" height="14" rx="1.5" fill="#c9a46b" stroke="#2b1608"/><rect x="1" y="3" width="4" height="14" fill="#b0893f" stroke="#2b1608"/><path d="M9 3v7M13 3v4M17 3v7M21 3v4M25 3v7M29 3v4" stroke="#2b1608" stroke-width="1.1"/><path d="M7 14h26" stroke="#8a6a2f" stroke-width=".8"/></svg><span id="szn">30</span><span class="ar">▾</span></button><span id="szm"><i data-v="15">15</i><i data-v="20">20</i><i data-v="25">25</i><i data-v="30">30</i><i data-v="35">35</i><i data-v="40">40</i><i data-v="50">50</i><i data-v="60">60</i><i data-v="c">Custom…</i></span></span><input id="sz" type="number" min="5" max="100" step="1" value="30" style="display:none"></div>
   <button id="cbtn" title="Text color (dye)"><svg viewBox="0 0 24 32" aria-hidden="true"><defs><clipPath id="liq"><rect x="0" y="17" width="24" height="16"/></clipPath></defs><rect x="9" y="1" width="6" height="5" rx="1" fill="#8a5a2b" stroke="#2b1608"/><path d="M8.5 6h7v4h-7z" fill="#cfe0ea" fill-opacity=".35" stroke="#cfd6dd"/><path d="M8 10h8v4c4 2 6 5 6 9v3a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-3c0-4 2-7 6-9z" fill="#cfe0ea" fill-opacity=".22"/><path id="cl" clip-path="url(#liq)" d="M8 10h8v4c4 2 6 5 6 9v3a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-3c0-4 2-7 6-9z" style="fill:#ffffff"/><path d="M8 10h8v4c4 2 6 5 6 9v3a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-3c0-4 2-7 6-9z" fill="none" stroke="#d6dde3" stroke-width="1.4"/><rect x="6" y="19" width="12" height="7" rx="1" fill="#f0e2c0" stroke="#2b1608" stroke-width=".8"/><path d="M8 22h8M8 24h5" stroke="#6b4a22" stroke-width=".8"/><path d="M5 17c0 2-1 4-1 7" stroke="#fff" stroke-opacity=".7" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg><span class="ar">▾</span></button>
@@ -163,7 +183,7 @@ body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
   <div id="cpop"></div>
 </div>
 <div id="ed" contenteditable="true" spellcheck="false"></div>
-<div class="abase" aria-hidden="true"><svg viewBox="0 0 600 112" preserveAspectRatio="none"><defs><linearGradient id="st" x1="0" x2="1"><stop offset="0" stop-color="#14161a"/><stop offset=".3" stop-color="#4b5058"/><stop offset=".55" stop-color="#2a2d33"/><stop offset=".85" stop-color="#3a3f46"/><stop offset="1" stop-color="#1a1c20"/></linearGradient><linearGradient id="rim" x1="0" x2="1"><stop offset=".6" stop-color="#ff7a1a00"/><stop offset="1" stop-color="#ff7a1a88"/></linearGradient><clipPath id="ac"><path id="ap" d="M72 0H528C514 24 498 36 504 52C509 64 540 70 562 82C570 88 574 96 574 112H26C26 96 30 88 38 82C60 70 91 64 96 52C102 36 86 24 72 0Z"/></clipPath></defs><g filter="url(#grain)"><use href="#ap" fill="url(#st)"/></g><g clip-path="url(#ac)"><rect width="600" height="112" fill="url(#rim)"/><rect x="150" y="0" width="22" height="112" fill="#ffffff" opacity=".07"/></g><use href="#ap" fill="none" stroke="#050506" stroke-width="3"/></svg></div>
+<div class="abase" aria-hidden="true"><svg viewBox="0 0 600 152" preserveAspectRatio="none"><defs><linearGradient id="st" x1="0" x2="1"><stop offset="0" stop-color="#14161a"/><stop offset=".3" stop-color="#4b5058"/><stop offset=".55" stop-color="#2a2d33"/><stop offset=".85" stop-color="#3a3f46"/><stop offset="1" stop-color="#1a1c20"/></linearGradient><linearGradient id="rim" x1="0" x2="1"><stop offset=".6" stop-color="#ff7a1a00"/><stop offset="1" stop-color="#ff7a1a88"/></linearGradient><clipPath id="ac"><path id="ap" d="M72 0H528C514 24 498 36 504 52C509 64 540 70 562 82C570 88 574 96 574 112H26C26 96 30 88 38 82C60 70 91 64 96 52C102 36 86 24 72 0Z"/></clipPath></defs><defs><linearGradient id="wd" x1="0" x2="1"><stop offset="0" stop-color="#22120a"/><stop offset=".35" stop-color="#7a5230"/><stop offset=".7" stop-color="#5a3a1f"/><stop offset="1" stop-color="#1e1008"/></linearGradient></defs><path d="M60 108H540L554 152H46z" fill="url(#wd)" stroke="#120a05" stroke-width="2"/><path d="M118 110v42M186 110v42M268 110v42M352 110v42M432 110v42M498 110v42" stroke="#2a170b" stroke-opacity=".6" stroke-width="1.4" fill="none"/><path d="M60 108H540" stroke="#a87a48" stroke-width="2"/><g filter="url(#grain)"><use href="#ap" fill="url(#st)"/></g><g clip-path="url(#ac)"><rect width="600" height="112" fill="url(#rim)"/><rect x="150" y="0" width="22" height="112" fill="#ffffff" opacity=".07"/></g><use href="#ap" fill="none" stroke="#050506" stroke-width="3"/></svg></div>
 
 </div>
 <div class="right">
@@ -194,12 +214,13 @@ let saved=null,pend=20;
 
 for(const k in C){const i=document.createElement('i');i.style.background=C[k][0];i.title='~'+k+'~ '+C[k][1];i.dataset.h=C[k][0];$('cpop').appendChild(i)}
 
-document.addEventListener('selectionchange',()=>{const s=getSelection();if(s.rangeCount&&ed.contains(s.anchorNode))saved=s.getRangeAt(0).cloneRange()});
+function syncBold(){try{$('bd').classList.toggle('hot',document.queryCommandState('bold'))}catch(e){}}
+document.addEventListener('selectionchange',()=>{const s=getSelection();if(s.rangeCount&&ed.contains(s.anchorNode)){saved=s.getRangeAt(0).cloneRange();syncBold()}});
 function restore(){ed.focus();if(saved){const s=getSelection();s.removeAllRanges();s.addRange(saved)}}
 $('tb').addEventListener('mousedown',e=>{if(e.target.id!=='sz'&&!e.target.closest('.szl'))e.preventDefault()});
 $('cbtn').onclick=()=>$('cpop').classList.toggle('on');
 $('cpop').onclick=e=>{const h=e.target.dataset.h;if(!h)return;restore();document.execCommand('foreColor',false,h);$('cl').style.fill=h;$('cpop').classList.remove('on');ed.focus()};
-$('bd').onclick=()=>{restore();document.execCommand('bold')};
+$('bd').onclick=()=>{restore();document.execCommand('bold');syncBold()};
 $('nl').onclick=()=>{restore();document.execCommand('insertLineBreak');ed.focus()};
 function applySize(){const n=clamp(parseFloat($('sz').value)||30,5,100);$('sz').value=Math.round(n);$('szn').textContent=Math.round(n);pend=n/SC;restore();document.execCommand('fontSize',false,'7');fix();ed.focus()}
 $('sz').onchange=applySize;
