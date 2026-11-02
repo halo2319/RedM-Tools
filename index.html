@@ -30,16 +30,21 @@ h2{margin:44px 0 0;font-size:clamp(24px,4vw,32px);padding-bottom:12px;border-bot
 .tb{background:linear-gradient(#3a2412,#2b1a0e);color:var(--cr);border:3px solid var(--ln);border-bottom:0;display:flex;align-items:center;gap:6px;padding:6px 10px;position:relative;flex-wrap:wrap}
 .tb select,.tb button{background:linear-gradient(#7a4b27,#5a3a1e);border:1px solid var(--ln);color:var(--cr);font:14px Roboto,Arial,sans-serif;padding:6px 8px;cursor:pointer;border-radius:4px;box-shadow:inset 0 1px 0 #ffffff25}
 .tb select:hover,.tb button:hover{background:linear-gradient(#946036,#6e4526)}
+.dd{position:relative}
+#szm{display:none;position:absolute;left:0;top:100%;z-index:6;min-width:100%;flex-direction:column;background:#2b1a0e;border:2px solid var(--lt);box-shadow:0 4px 14px #000b;padding:4px 0}
+#szm.on{display:flex}
+#szm i{font-style:normal;padding:6px 14px;color:#f4dfb2;cursor:pointer;white-space:nowrap;font-size:14px}
+#szm i:hover{background:#7a4b27;color:#fff}
+.tb select option{background-color:#3a2412;color:#f4dfb2}
+.tb select option:checked{background:#7a4b27 linear-gradient(#7a4b27,#7a4b27);color:#fff}
 #cbtn{display:flex;align-items:center;gap:4px}
+.szl{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--cr)}
+.szl input{width:68px;padding:6px;background:var(--dk);color:var(--cr);border:1px solid var(--ln);border-radius:4px;font:14px Roboto,Arial,sans-serif}
 #cbtn b{display:block;line-height:1;border-bottom:3px solid #fff;font-size:15px}
-#cpop{display:none;position:absolute;left:150px;top:100%;z-index:4;background:#2b1a0e;border:2px solid var(--lt);box-shadow:0 4px 14px #000b;padding:8px;grid-template-columns:repeat(6,1fr);gap:5px;width:230px}
+#cpop{display:none;position:absolute;left:150px;top:100%;z-index:4;background:#2b1a0e;border:2px solid var(--lt);box-shadow:0 4px 14px #000b;padding:8px;grid-template-columns:repeat(8,1fr);gap:5px;width:300px}
 #cpop.on{display:grid}
 #cpop i{height:28px;border-radius:3px;border:1px solid #000a;cursor:pointer}
 #cpop i:hover{outline:2px solid var(--cr)}
-#cust{display:flex;align-items:center;justify-content:center;font:700 18px Roboto,Arial,sans-serif;font-style:normal;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000;background:conic-gradient(red,yellow,lime,cyan,blue,magenta,red)}
-#sw{flex-basis:100%;display:flex;flex-wrap:wrap;gap:5px;padding-top:6px;border-top:1px solid #0006}
-#sw i{display:flex;align-items:flex-end;justify-content:center;width:44px;height:30px;border-radius:3px;border:1px solid #000a;cursor:pointer;font:700 9px Roboto,Arial,sans-serif;font-style:normal;color:#fff;text-shadow:0 0 2px #000,0 0 2px #000;padding-bottom:1px}
-#sw i:hover{outline:2px solid var(--cr)}
 #nl{font-weight:700!important}
 #ed{background:radial-gradient(ellipse at center,#2a1a10,var(--dk));color:#fff;min-height:440px;padding:14px;font:20px Arial,sans-serif;outline:0;resize:vertical;overflow:auto;border:3px solid var(--ln);box-shadow:inset 0 0 24px #000c}
 #ed:empty:before{content:"Type your scene text here...";color:#fff6}
@@ -50,24 +55,6 @@ textarea{width:100%;height:260px;margin-top:22px;background:var(--dk);color:var(
 .row button:hover{background:linear-gradient(#b0753f,#7a4b27)}
 .row button:active{transform:translateY(2px);box-shadow:inset 0 1px 0 #ffffff30,0 1px 0 #1f1006}
 #pv{margin-top:8px;background:linear-gradient(#2a1a2e,#5a3a2a);border:4px solid var(--ln);border-radius:4px;min-height:200px;display:flex;align-items:center;justify-content:center;padding:14px;text-align:center;overflow-x:auto;font-family:Arial,sans-serif;white-space:pre;text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;box-shadow:inset 0 0 22px #000b}
-#cpo{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:12px;z-index:20}
-#cpo.on{display:flex}
-#cpd{background:linear-gradient(#6a4223,#4a2d16);border:6px solid #2b1608;border-radius:8px;width:min(440px,100%);box-shadow:0 14px 40px #000d,inset 0 0 30px #000a;color:var(--cr)}
-#cpd .hd{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;font:400 18px Rye,Georgia,serif;border-bottom:3px double #2b1608}
-#cpx{background:none;border:0;color:var(--cr);font-size:18px;cursor:pointer}
-#cpd .bdy{display:flex;gap:12px;padding:16px;align-items:flex-start}
-#sv{position:relative;width:180px;height:180px;flex:none;border:2px solid #2b1608;cursor:crosshair;touch-action:none;background-image:linear-gradient(to top,#000,#0000),linear-gradient(to right,#fff,#fff0)}
-#svk{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 1px #000;pointer-events:none}
-#hue{position:relative;width:20px;height:180px;flex:none;border:2px solid #2b1608;cursor:pointer;touch-action:none;background:linear-gradient(#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00)}
-#huek{position:absolute;left:-4px;right:-4px;height:8px;margin-top:-4px;background:#fff;border:1px solid #000;pointer-events:none}
-#cpd .fl{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1}
-#cpd label{display:flex;align-items:center;gap:6px;font-size:14px}
-#cpd label input{width:100%;min-width:0;padding:5px 7px;background:var(--dk);color:var(--cr);border:2px solid #2b1608;border-radius:3px;font:14px ui-monospace,Consolas,monospace}
-#pvw{height:48px;border:2px solid #2b1608;background:#000}
-#near{padding:0 16px 12px;font-size:13px;color:#f4dfb2}
-#cpd .ft{display:flex;justify-content:flex-end;gap:10px;padding:12px 16px;border-top:3px double #2b1608}
-#cpd .ft button{background:linear-gradient(#94613a,#67401f);color:#fbeacb;border:2px solid #2b1608;border-radius:5px;padding:8px 18px;font:400 13px Rye,Georgia,serif;text-transform:uppercase;cursor:pointer;box-shadow:inset 0 1px 0 #ffffff30,0 3px 0 #1f1006}
-#cpd .ft button:hover{background:linear-gradient(#b0753f,#7a4b27)}
 h1.ttl{font-size:clamp(22px,5.4vw,42px);display:flex;align-items:center;justify-content:center;gap:14px;margin:0 0 6px;line-height:1.15}
 .hat{font-size:1.15em;text-shadow:none;display:inline-block;filter:drop-shadow(0 3px 2px #000a)}
 .hat svg{width:1.7em;height:1.06em;display:block}
@@ -99,14 +86,14 @@ body{padding:56px 2vw 24px;align-items:flex-start}
 
 <div class="cols"><div class="left">
 <div class="tb" id="tb">
-  <select id="sz" title="Font size"></select>
+  <div class="szl" title="Font size (30 = default, 15 = tiny)">Size <span class="dd"><button id="szb" type="button">30 ▾</button><span id="szm"><i data-v="15">15</i><i data-v="20">20</i><i data-v="25">25</i><i data-v="30">30</i><i data-v="35">35</i><i data-v="40">40</i><i data-v="50">50</i><i data-v="60">60</i><i data-v="c">Custom…</i></span></span><input id="sz" type="number" min="5" max="100" step="1" value="30" style="display:none"></div>
   <button id="cbtn" title="Text color"><b id="cl">A</b> ▾</button>
   <button id="bd" title="Bold"><b>B</b></button>
   <button id="nl" title="Insert a new line (~n~)">↵ New Line</button>
   <div id="cpop"></div>
 </div>
 <div id="ed" contenteditable="true" spellcheck="false"></div>
-<div class="st"><span>P » SPAN</span><span id="info">Default size 20px = 30</span></div>
+<div class="st"><span>P » SPAN</span><span id="info">Size 30 = default · 15 = tiny</span></div>
 
 </div>
 <div class="right">
@@ -119,75 +106,33 @@ body{padding:56px 2vw 24px;align-items:flex-start}
 </div></div>
 </div>
 
-<div id="cpo"><div id="cpd" role="dialog" aria-label="Color Picker">
-  <div class="hd"><span>Color Picker</span><button id="cpx" aria-label="Close">✕</button></div>
-  <div class="bdy">
-    <div id="sv"><div id="svk"></div></div>
-    <div id="hue"><div id="huek"></div></div>
-    <div class="fl">
-      <label>R<input id="fr" inputmode="numeric"></label>
-      <label>G<input id="fg" inputmode="numeric"></label>
-      <label>B<input id="fb" inputmode="numeric"></label>
-      <label>#<input id="fh" maxlength="6"></label>
-      <div id="pvw"></div>
-    </div>
-  </div>
-  <div id="near"></div>
-  <div class="ft"><button id="cpc">Cancel</button><button id="cps" class="sv">Save</button></div>
-</div></div>
-
 <script>
-const C={t:['#c8c8c8','Light Gray'],t1:['#b266ff','Purple'],t2:['#ff9a2e','Orange'],t3:['#7fc8ff','Light Blue'],t4:['#ffe44d','Yellow'],t5:['#ffb3d9','Light Pink'],t6:['#4cd964','Green'],t7:['#2a4bd7','Dark Blue'],t8:['#ff7070','Light Red'],e:['#ff2a2a','Red'],o:['#ffe44d','Yellow 2'],d:['#ff8c1a','Orange 2'],m:['#888888','Grey'],q:['#ffffff','White'],v:['#000000','Black'],u:['#ff69b4','Pink'],pa:['#3a7bff','Blue']};
+const C={t:['#c8c8c8','Light Gray'],t1:['#b266ff','Purple'],t2:['#ff9a2e','Orange'],t3:['#7fc8ff','Light Blue'],t4:['#ffe44d','Yellow'],t5:['#ffb3d9','Light Pink'],t6:['#4cd964','Green'],t7:['#2a4bd7','Dark Blue'],t8:['#ff7070','Light Red'],e:['#ff2a2a','Red'],d:['#ff8c1a','Orange 2'],m:['#888888','Grey'],q:['#ffffff','White'],v:['#000000','Black'],u:['#ff69b4','Pink'],pa:['#3a7bff','Blue']};
 const $=id=>document.getElementById(id),ed=$('ed');
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
 const SC=1.5; // px -> in-game size (20px = 30)
 let saved=null,pend=20;
 
 // toolbar setup
-[10,12,14,16,18,20,24,28,32,40].forEach(p=>{const o=new Option(p+'px',p);if(p==20)o.selected=true;$('sz').add(o)});
+
 for(const k in C){const i=document.createElement('i');i.style.background=C[k][0];i.title='~'+k+'~ '+C[k][1];i.dataset.h=C[k][0];$('cpop').appendChild(i)}
-{const c=document.createElement('i');c.id='cust';c.textContent='+';c.title='Custom color…';$('cpop').appendChild(c)}
+
 document.addEventListener('selectionchange',()=>{const s=getSelection();if(s.rangeCount&&ed.contains(s.anchorNode))saved=s.getRangeAt(0).cloneRange()});
 function restore(){ed.focus();if(saved){const s=getSelection();s.removeAllRanges();s.addRange(saved)}}
-$('tb').addEventListener('mousedown',e=>{if(e.target.id!=='sz')e.preventDefault()});
+$('tb').addEventListener('mousedown',e=>{if(e.target.id!=='sz'&&!e.target.closest('.szl'))e.preventDefault()});
 $('cbtn').onclick=()=>$('cpop').classList.toggle('on');
 $('cpop').onclick=e=>{const h=e.target.dataset.h;if(!h)return;restore();document.execCommand('foreColor',false,h);$('cl').style.borderColor=h;$('cpop').classList.remove('on');ed.focus()};
 $('bd').onclick=()=>{restore();document.execCommand('bold')};
 $('nl').onclick=()=>{restore();document.execCommand('insertLineBreak');ed.focus()};
-$('sz').onchange=()=>{pend=+$('sz').value;restore();document.execCommand('fontSize',false,'7');fix();ed.focus()};
+function applySize(){const n=clamp(parseFloat($('sz').value)||30,5,100);$('sz').value=Math.round(n);$('szb').textContent=Math.round(n)+' ▾';pend=n/SC;restore();document.execCommand('fontSize',false,'7');fix();ed.focus()}
+$('sz').onchange=applySize;
+$('szb').onclick=()=>$('szm').classList.toggle('on');
+$('szm').onclick=e=>{const v=e.target.dataset.v;if(!v)return;$('szm').classList.remove('on');if(v==='c'){$('sz').style.display='';$('sz').focus();$('sz').select()}else{$('sz').style.display='none';$('sz').value=v;applySize()}};
+$('sz').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();applySize()}});
 function fix(){ed.querySelectorAll('font[size="7"]').forEach(f=>{const s=document.createElement('span');s.style.fontSize=pend+'px';while(f.firstChild)s.appendChild(f.firstChild);f.replaceWith(s)})}
 ed.addEventListener('input',fix);
 
-// ---- Color picker dialog ----
-const cp={h:0,s:0,v:0};
-const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
-function hsv2rgb(h,s,v){const f=n=>{const k=(n+h/60)%6;return v-v*s*Math.max(0,Math.min(k,4-k,1))};return[f(5),f(3),f(1)].map(x=>Math.round(x*255))}
-function rgb2hsv(r,g,b){r/=255;g/=255;b/=255;const mx=Math.max(r,g,b),mn=Math.min(r,g,b),d=mx-mn;let h=0;if(d){if(mx===r)h=((g-b)/d)%6;else if(mx===g)h=(b-r)/d+2;else h=(r-g)/d+4;h*=60;if(h<0)h+=360}return{h,s:mx?d/mx:0,v:mx}}
-const hex2=n=>n.toString(16).padStart(2,'0');
-function paint(skip){
-  const[r,g,b]=hsv2rgb(cp.h,cp.s,cp.v),hex='#'+hex2(r)+hex2(g)+hex2(b);
-  $('sv').style.backgroundColor='hsl('+cp.h+',100%,50%)';
-  $('svk').style.left=cp.s*100+'%';$('svk').style.top=(1-cp.v)*100+'%';
-  $('huek').style.top=(cp.h/360*100)+'%';$('pvw').style.background=hex;
-  if(!skip){$('fr').value=r;$('fg').value=g;$('fb').value=b;$('fh').value=hex.slice(1)}
-  const k=nearest('rgb('+r+', '+g+', '+b+')');
-  $('near').textContent='Closest in-game color: ~'+k+'~ '+C[k][1];
-  return hex;
-}
-function drag(el,fn){el.addEventListener('pointerdown',e=>{el.setPointerCapture(e.pointerId);fn(e);const mv=ev=>fn(ev);el.addEventListener('pointermove',mv);const up=()=>{el.removeEventListener('pointermove',mv);el.removeEventListener('pointerup',up)};el.addEventListener('pointerup',up)})}
-drag($('sv'),e=>{const r=$('sv').getBoundingClientRect();cp.s=clamp((e.clientX-r.left)/r.width,0,1);cp.v=1-clamp((e.clientY-r.top)/r.height,0,1);paint()});
-drag($('hue'),e=>{const r=$('hue').getBoundingClientRect();cp.h=clamp((e.clientY-r.top)/r.height,0,.9999)*360;paint()});
-['fr','fg','fb'].forEach(id=>$(id).addEventListener('input',()=>{
-  const v=['fr','fg','fb'].map(i=>clamp(parseInt($(i).value)||0,0,255));
-  Object.assign(cp,rgb2hsv(...v));const hx='#'+v.map(hex2).join('');paint(true);$('fh').value=hx.slice(1)}));
-$('fh').addEventListener('input',()=>{const t=$('fh').value.replace('#','');if(!/^[0-9a-f]{6}$/i.test(t))return;
-  const v=[0,2,4].map(i=>parseInt(t.slice(i,i+2),16));Object.assign(cp,rgb2hsv(...v));paint(true);
-  $('fr').value=v[0];$('fg').value=v[1];$('fb').value=v[2]});
-const cpClose=()=>$('cpo').classList.remove('on');
-$('cust').onclick=()=>{$('cpop').classList.remove('on');$('cpo').classList.add('on');paint()};
-$('cpx').onclick=cpClose;$('cpc').onclick=cpClose;
-$('cpo').addEventListener('mousedown',e=>{if(e.target.id==='cpo')cpClose()});
-$('cps').onclick=()=>{const h=paint(true);cpClose();restore();document.execCommand('foreColor',false,h);$('cl').style.borderColor=h;ed.focus()};
-document.addEventListener('click',e=>{if(!e.target.closest('#cpop,#cbtn'))$('cpop').classList.remove('on')});
+document.addEventListener('click',e=>{if(!e.target.closest('#szm,#szb'))$('szm').classList.remove('on');if(!e.target.closest('#cpop,#cbtn'))$('cpop').classList.remove('on')});
 
 // DOM -> scene code
 function nearest(rgb){const m=rgb.match(/\d+/g).map(Number);let b='q',bd=1e9;
