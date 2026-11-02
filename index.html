@@ -76,6 +76,15 @@ body{padding:56px 2vw 24px;align-items:flex-start}
 .right .orn.foot{margin:14px 0 0}
 .sub{margin:0 0 16px}
 @media(max-width:1000px){body{align-items:flex-start}.panel{height:auto}.cols{grid-template-columns:1fr}.panel #ed{min-height:300px}.right textarea{min-height:200px}.right #pv{min-height:160px}.right h2{margin-top:22px}}
+.row{gap:18px}
+.row #gen,.row #cp{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:220px;padding:12px 26px 10px;border:3px solid #3b2210;border-radius:8px;cursor:pointer;box-shadow:inset 0 0 0 2px #00000055,inset 0 2px 0 #ffffff55,0 4px 0 #1f1006,0 7px 12px #000a}
+.row #gen{background:radial-gradient(circle at 11px 50%,#4a3510 0 2px,#0000 3px),radial-gradient(circle at calc(100% - 11px) 50%,#4a3510 0 2px,#0000 3px),linear-gradient(#e6c97f,#bb943f 55%,#9a7630);color:#2b1608;text-shadow:0 1px 0 #f6e0a6}
+.row #cp{background:radial-gradient(circle at 11px 50%,#15171a 0 2px,#0000 3px),radial-gradient(circle at calc(100% - 11px) 50%,#15171a 0 2px,#0000 3px),linear-gradient(#767a82,#464a50 55%,#30343a);color:#f4dfb2;text-shadow:0 1px 0 #000}
+.row #gen:hover{background:radial-gradient(circle at 11px 50%,#4a3510 0 2px,#0000 3px),radial-gradient(circle at calc(100% - 11px) 50%,#4a3510 0 2px,#0000 3px),linear-gradient(#f2d98f,#c9a24b 55%,#a98238)}
+.row #cp:hover{background:radial-gradient(circle at 11px 50%,#15171a 0 2px,#0000 3px),radial-gradient(circle at calc(100% - 11px) 50%,#15171a 0 2px,#0000 3px),linear-gradient(#868a92,#52565d 55%,#3a3e44)}
+.row #gen:active,.row #cp:active{transform:translateY(3px);box-shadow:inset 0 0 0 2px #00000055,0 1px 0 #1f1006}
+.row #gen b,.row #cp b{font:400 15px Rye,Georgia,serif;letter-spacing:.06em;text-transform:uppercase}
+.row #gen small,.row #cp small{font:700 10px Roboto,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
 .lbl{margin-top:36px;font:400 12px Rye,Georgia,serif;text-transform:uppercase;color:#f4dfb2;letter-spacing:.1em;text-shadow:0 1px 0 #2b1608}
 </style></head><body>
 <div class="panel">
@@ -99,7 +108,7 @@ body{padding:56px 2vw 24px;align-items:flex-start}
 <div class="right">
 <h2>★ Generated Code ★</h2>
 <textarea id="out" readonly></textarea>
-<div class="row"><button id="gen">Generate Code</button><button id="cp">Copy Code</button></div>
+<div class="row"><button id="gen"><b>★ Draw Up Scene ★</b><small>Generate Code</small></button><button id="cp"><b>Stash in Saddlebag</b><small>Copy Code</small></button></div>
 <div class="lbl">Preview</div>
 <div id="pv"></div>
 <div class="orn foot">🐎 ★ <svg class="mini" viewBox="0 0 64 40"><use href="#hatsym"/></svg> ★ 🐎</div>
@@ -179,5 +188,5 @@ function preview(src){
 $('gen').onclick=generate;
 $('cp').onclick=async()=>{const t=$('out').value;if(!t)return;
   try{await navigator.clipboard.writeText(t)}catch(e){$('out').removeAttribute('readonly');$('out').select();document.execCommand('copy');$('out').setAttribute('readonly','')}
-  $('cp').textContent='Copied!';setTimeout(()=>$('cp').textContent='Copy Code',1200)};
+  const sm=$('cp').querySelector('small');sm.textContent='Copied ★';setTimeout(()=>sm.textContent='Copy Code',1200)};
 </script></body></html>
