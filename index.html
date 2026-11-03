@@ -159,7 +159,21 @@ body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 .panel #ed{background:radial-gradient(circle at 22% 28%,#ffffff07 0 60px,#0000 61px),radial-gradient(circle at 68% 62%,#ffffff06 0 80px,#0000 81px),radial-gradient(ellipse at center,#202226,#0b0b0d);border:7px solid #3c4047;border-top:0;box-shadow:inset 0 0 0 2px #000a,inset 6px 6px 0 #ffffff10,inset 0 0 40px #000e,0 0 0 3px #15171a}
 .abase{height:152px}
 @media(max-width:1000px){.heel{display:none}}
+/* proper anvil, no bubbles, 14 colors */
+.horn,.heel{display:none}
+.tb::after{display:none}
+.tb{position:relative;z-index:2;background:radial-gradient(circle at 18% 40%,#ffffff12 0 18px,#0000 19px),radial-gradient(circle at 52% 60%,#ffffff0e 0 22px,#0000 23px),linear-gradient(#8f959e 0,#6a6f78 10%,#4a4e56 60%,#34373d)}
+.panel #ed{position:relative;z-index:2}
+.abase{height:190px;margin-top:-20px;position:relative;z-index:1;flex:none}
+.abase svg{width:100%;height:100%;display:block;filter:drop-shadow(0 8px 12px #000)}
+#pv::after{height:15%;background:repeating-linear-gradient(90deg,#0000 0 26px,#0000009a 26px 31px),radial-gradient(ellipse 70% 120% at 50% 100%,#ffb347,#e8480c 40%,#5a1a06 78%),linear-gradient(#3a1208,#0b0504);filter:none;animation:coal 1.7s ease-in-out infinite alternate}
+#cpop{grid-template-columns:repeat(7,1fr);width:262px}
+.tb{z-index:6}
+.panel #ed{z-index:2}
+.tb{background:linear-gradient(#8f959e 0,#6a6f78 10%,#4a4e56 60%,#34373d)}
+.panel #ed{background:linear-gradient(#17181b,#0e0e10)}
 </style>
+
 
 
 </head><body>
@@ -173,8 +187,6 @@ body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 <p class="sub">Type below and generate formatted scene text.</p>
 
 <div class="cols"><div class="left">
-<svg class="horn" viewBox="0 0 120 80" aria-hidden="true"><defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7b8089"/><stop offset=".45" stop-color="#3b3f46"/><stop offset="1" stop-color="#17191d"/></linearGradient></defs><g filter="url(#grain)"><path d="M120 0V72C92 68 52 58 12 42C2 38 0 31 8 27C50 12 92 4 120 0Z" fill="url(#hg)" stroke="#050506" stroke-width="2"/></g></svg>
-<svg class="heel" viewBox="0 0 50 80" aria-hidden="true"><defs><linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a8f98"/><stop offset=".5" stop-color="#3b3f46"/><stop offset="1" stop-color="#17191d"/></linearGradient></defs><g filter="url(#grain)"><path d="M0 8H38c8 0 12 4 12 10v28c0 5-4 8-9 8H0z" fill="url(#hl)" stroke="#050506" stroke-width="2"/></g></svg>
 <div class="tb" id="tb">
   <div class="szl" title="Font size (30 = default, 15 = tiny)"><span class="dd"><button id="szb" type="button"><svg viewBox="0 0 36 20" aria-hidden="true"><rect x="1" y="3" width="34" height="14" rx="1.5" fill="#c9a46b" stroke="#2b1608"/><rect x="1" y="3" width="4" height="14" fill="#b0893f" stroke="#2b1608"/><path d="M9 3v7M13 3v4M17 3v7M21 3v4M25 3v7M29 3v4" stroke="#2b1608" stroke-width="1.1"/><path d="M7 14h26" stroke="#8a6a2f" stroke-width=".8"/></svg><span id="szn">30</span><span class="ar">▾</span></button><span id="szm"><i data-v="15">15</i><i data-v="20">20</i><i data-v="25">25</i><i data-v="30">30</i><i data-v="35">35</i><i data-v="40">40</i><i data-v="50">50</i><i data-v="60">60</i><i data-v="c">Custom…</i></span></span><input id="sz" type="number" min="5" max="100" step="1" value="30" style="display:none"></div>
   <button id="cbtn" title="Text color (dye)"><svg viewBox="0 0 24 32" aria-hidden="true"><defs><clipPath id="liq"><rect x="0" y="17" width="24" height="16"/></clipPath></defs><rect x="9" y="1" width="6" height="5" rx="1" fill="#8a5a2b" stroke="#2b1608"/><path d="M8.5 6h7v4h-7z" fill="#cfe0ea" fill-opacity=".35" stroke="#cfd6dd"/><path d="M8 10h8v4c4 2 6 5 6 9v3a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-3c0-4 2-7 6-9z" fill="#cfe0ea" fill-opacity=".22"/><path id="cl" clip-path="url(#liq)" d="M8 10h8v4c4 2 6 5 6 9v3a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-3c0-4 2-7 6-9z" style="fill:#ffffff"/><path d="M8 10h8v4c4 2 6 5 6 9v3a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-3c0-4 2-7 6-9z" fill="none" stroke="#d6dde3" stroke-width="1.4"/><rect x="6" y="19" width="12" height="7" rx="1" fill="#f0e2c0" stroke="#2b1608" stroke-width=".8"/><path d="M8 22h8M8 24h5" stroke="#6b4a22" stroke-width=".8"/><path d="M5 17c0 2-1 4-1 7" stroke="#fff" stroke-opacity=".7" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg><span class="ar">▾</span></button>
@@ -183,11 +195,19 @@ body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
   <div id="cpop"></div>
 </div>
 <div id="ed" contenteditable="true" spellcheck="false"></div>
-<div class="abase" aria-hidden="true"><svg viewBox="0 0 600 152" preserveAspectRatio="none"><defs><linearGradient id="st" x1="0" x2="1"><stop offset="0" stop-color="#14161a"/><stop offset=".3" stop-color="#4b5058"/><stop offset=".55" stop-color="#2a2d33"/><stop offset=".85" stop-color="#3a3f46"/><stop offset="1" stop-color="#1a1c20"/></linearGradient><linearGradient id="rim" x1="0" x2="1"><stop offset=".6" stop-color="#ff7a1a00"/><stop offset="1" stop-color="#ff7a1a88"/></linearGradient><clipPath id="ac"><path id="ap" d="M72 0H528C514 24 498 36 504 52C509 64 540 70 562 82C570 88 574 96 574 112H26C26 96 30 88 38 82C60 70 91 64 96 52C102 36 86 24 72 0Z"/></clipPath></defs><defs><linearGradient id="wd" x1="0" x2="1"><stop offset="0" stop-color="#22120a"/><stop offset=".35" stop-color="#7a5230"/><stop offset=".7" stop-color="#5a3a1f"/><stop offset="1" stop-color="#1e1008"/></linearGradient></defs><path d="M60 108H540L554 152H46z" fill="url(#wd)" stroke="#120a05" stroke-width="2"/><path d="M118 110v42M186 110v42M268 110v42M352 110v42M432 110v42M498 110v42" stroke="#2a170b" stroke-opacity=".6" stroke-width="1.4" fill="none"/><path d="M60 108H540" stroke="#a87a48" stroke-width="2"/><g filter="url(#grain)"><use href="#ap" fill="url(#st)"/></g><g clip-path="url(#ac)"><rect width="600" height="112" fill="url(#rim)"/><rect x="150" y="0" width="22" height="112" fill="#ffffff" opacity=".07"/></g><use href="#ap" fill="none" stroke="#050506" stroke-width="3"/></svg></div>
+<div class="abase" aria-hidden="true"><svg viewBox="0 0 600 172" preserveAspectRatio="xMidYMin meet"><defs>
+<linearGradient id="st" x1="0" x2="1"><stop offset="0" stop-color="#17191d"/><stop offset=".25" stop-color="#4d535b"/><stop offset=".5" stop-color="#2b2e34"/><stop offset=".8" stop-color="#3b4047"/><stop offset="1" stop-color="#1a1c20"/></linearGradient>
+<linearGradient id="face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d0d5dc"/><stop offset="1" stop-color="#6a6f78"/></linearGradient>
+<linearGradient id="rim" x1="0" x2="1"><stop offset=".55" stop-color="#ff7a1a00"/><stop offset="1" stop-color="#ff7a1a99"/></linearGradient>
+<linearGradient id="wd" x1="0" x2="1"><stop offset="0" stop-color="#22120a"/><stop offset=".35" stop-color="#7a5230"/><stop offset=".7" stop-color="#5a3a1f"/><stop offset="1" stop-color="#1e1008"/></linearGradient>
+<clipPath id="ac"><path id="ap" d="M10 38C60 33 112 25 158 22L548 22L548 40Q548 46 540 46L492 46C484 46 480 52 470 58C462 70 436 84 432 98C432 112 458 120 476 128L476 150L124 150L124 128C142 120 168 112 168 98C168 84 140 70 132 56C112 52 62 50 10 44Q3 41 10 38Z"/></clipPath></defs>
+<path d="M150 146H450L464 172H136z" fill="url(#wd)" stroke="#120a05" stroke-width="2"/><path d="M190 148v24M250 148v24M320 148v24M390 148v24M430 148v24" stroke="#2a170b" stroke-opacity=".6" stroke-width="1.4" fill="none"/><path d="M150 146H450" stroke="#a87a48" stroke-width="2"/>
+<g filter="url(#grain)"><use href="#ap" fill="url(#st)"/></g>
+<g clip-path="url(#ac)"><rect width="600" height="150" fill="url(#rim)"/><rect x="158" y="22" width="390" height="6" fill="url(#face)"/><rect x="40" y="26" width="330" height="3" fill="#fff" opacity=".18"/><rect x="200" y="30" width="18" height="110" fill="#fff" opacity=".07"/></g>
+<use href="#ap" fill="none" stroke="#050506" stroke-width="2.5"/></svg></div>
 
 </div>
 <div class="right">
-<div class="smoke" aria-hidden="true"><i></i><i></i><i></i></div>
 <textarea id="out" class="vh" readonly aria-hidden="true" tabindex="-1"></textarea>
 <div class="row"><button id="forge">★ Forge a Stencil ★</button></div>
 <div id="msg" role="status" aria-live="polite"></div>
@@ -204,7 +224,7 @@ body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 <circle id="f1" cx="131" cy="104" r="26" fill="url(#gl)"/><g id="sp"></g>
 <g id="hm"><rect x="135" y="91.5" width="80" height="7" rx="3" fill="#8a5a2b" stroke="#2b1608"/><rect x="118" y="74" width="26" height="30" rx="3" fill="#6a6f78" stroke="#0a0a0b" stroke-width="2"/></g></svg><p>Forging&hellip;</p></div></div>
 <script>
-const C={t:['#c8c8c8','Light Gray'],t1:['#b266ff','Purple'],t2:['#ff9a2e','Orange'],t3:['#7fc8ff','Light Blue'],t4:['#ffe44d','Yellow'],t5:['#ffb3d9','Light Pink'],t6:['#4cd964','Green'],t7:['#2a4bd7','Dark Blue'],t8:['#ff7070','Light Red'],e:['#ff2a2a','Red'],d:['#ff8c1a','Orange 2'],m:['#888888','Grey'],q:['#ffffff','White'],v:['#000000','Black'],u:['#ff69b4','Pink'],pa:['#3a7bff','Blue']};
+const C={e:['#ff2a2a','Red'],o:['#ffe44d','Yellow'],d:['#ff8c1a','Orange'],m:['#888888','Grey'],q:['#ffffff','White'],t:['#c8c8c8','Light Gray'],v:['#000000','Black'],u:['#ff69b4','Pink'],pa:['#3a7bff','Blue'],t1:['#b266ff','Purple'],t3:['#7fc8ff','Light Blue'],t6:['#4cd964','Green'],t7:['#2a4bd7','Dark Blue'],t8:['#ff7070','Light Red']};
 const $=id=>document.getElementById(id),ed=$('ed');
 const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
 const SC=1.5; // px -> in-game size (20px = 30)
@@ -219,15 +239,29 @@ document.addEventListener('selectionchange',()=>{const s=getSelection();if(s.ran
 function restore(){ed.focus();if(saved){const s=getSelection();s.removeAllRanges();s.addRange(saved)}}
 $('tb').addEventListener('mousedown',e=>{if(e.target.id!=='sz'&&!e.target.closest('.szl'))e.preventDefault()});
 $('cbtn').onclick=()=>$('cpop').classList.toggle('on');
-$('cpop').onclick=e=>{const h=e.target.dataset.h;if(!h)return;restore();document.execCommand('foreColor',false,h);$('cl').style.fill=h;$('cpop').classList.remove('on');ed.focus()};
-$('bd').onclick=()=>{restore();document.execCommand('bold');syncBold()};
+$('cpop').onclick=e=>{const h=e.target.dataset.h;if(!h)return;restore();if(getSelection().isCollapsed)caretStyle('color',h);else document.execCommand('foreColor',false,h);$('cl').style.fill=h;$('cpop').classList.remove('on');ed.focus()};
+$('bd').onclick=()=>{restore();const sel=getSelection();
+  if(sel.isCollapsed&&sel.anchorNode){const n=sel.anchorNode,el=n.nodeType===3?n.parentElement:n;caretStyle('fontWeight',+getComputedStyle(el).fontWeight>=600?'400':'900')}
+  else document.execCommand('bold');
+  syncBold()};
 $('nl').onclick=()=>{restore();document.execCommand('insertLineBreak');ed.focus()};
-function applySize(){const n=clamp(parseFloat($('sz').value)||30,5,100);$('sz').value=Math.round(n);$('szn').textContent=Math.round(n);pend=n/SC;restore();document.execCommand('fontSize',false,'7');fix();ed.focus()}
+function applySize(){const n=clamp(parseFloat($('sz').value)||30,5,100);$('sz').value=Math.round(n);$('szn').textContent=Math.round(n);pend=n/SC;restore();if(getSelection().isCollapsed)caretStyle('fontSize',pend+'px');else{document.execCommand('fontSize',false,'7');fix()}ed.focus()}
 $('sz').onchange=applySize;
 $('szb').onclick=()=>$('szm').classList.toggle('on');
 $('szm').onclick=e=>{const v=e.target.dataset.v;if(!v)return;$('szm').classList.remove('on');if(v==='c'){$('sz').style.display='';$('sz').focus();$('sz').select()}else{$('sz').style.display='none';$('sz').value=v;applySize()}};
 $('sz').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();applySize()}});
-function fix(){ed.querySelectorAll('font[size="7"]').forEach(f=>{const s=document.createElement('span');s.style.fontSize=pend+'px';while(f.firstChild)s.appendChild(f.firstChild);f.replaceWith(s)})}
+function caretStyle(prop,val){
+  const sel=getSelection();if(!sel.rangeCount)return;
+  const r=sel.getRangeAt(0),node=r.startContainer,el=node.nodeType===3?node.parentElement:node;
+  const zw=el.closest&&el.closest('span.zw');
+  if(zw&&zw.textContent.replace(/\u200b/g,'')===''){zw.style[prop]=val;return}
+  const cs=getComputedStyle(el),sp=document.createElement('span');
+  sp.className='zw';sp.textContent='\u200b';sp.style.color=cs.color;sp.style.fontSize=cs.fontSize;
+  if(+cs.fontWeight>=600||document.queryCommandState('bold'))sp.style.fontWeight='900';
+  sp.style[prop]=val;r.insertNode(sp);
+  const nr=document.createRange();nr.setStart(sp.firstChild,1);nr.collapse(true);sel.removeAllRanges();sel.addRange(nr);
+}
+function fix(){ed.querySelectorAll('font[size="7"]').forEach(f=>{f.removeAttribute('size');f.style.fontSize=pend+'px'})}
 ed.addEventListener('input',fix);
 
 document.addEventListener('click',e=>{if(!e.target.closest('#szm,#szb'))$('szm').classList.remove('on');if(!e.target.closest('#cpop,#cbtn'))$('cpop').classList.remove('on')});
@@ -266,7 +300,7 @@ function preview(src){
   let st={c:'#fff',b:false,s:30},lines=[[]],last=0,m;
   const add=t=>{if(t.trim())lines[lines.length-1].push({...st,t:t.trim()})};
   while((m=re.exec(src))){add(src.slice(last,m.index));last=re.lastIndex;
-    if(m[2])st.s=+m[2];else{const k=m[1].toLowerCase();if(k==='n')lines.push([]);else if(k==='h')st.b=true;else st.c=C[k][0]}}
+    if(m[2])st.s=+m[2];else{const k=m[1].toLowerCase();if(k==='n')lines.push([]);else if(k==='h')st.b=true;else if(C[k])st.c=C[k][0]}}
   add(src.slice(last));
   const box=document.createElement('div');
   lines.forEach(l=>{const d=document.createElement('div');if(!l.length)d.innerHTML='&nbsp;';
